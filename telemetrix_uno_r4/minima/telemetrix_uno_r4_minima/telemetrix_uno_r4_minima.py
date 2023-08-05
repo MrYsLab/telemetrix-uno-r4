@@ -289,7 +289,6 @@ class TelemetrixUnoR4Minima(threading.Thread):
 
         # allow the threads to run
         self._run_threads()
-        print(f'Waiting for Arduino to reset')
         print(f'Reset Complete')
 
         # get telemetrix firmware version and print it
