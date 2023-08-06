@@ -1,5 +1,7 @@
 ## telemetrix-uno-r4
 
+# THIS IS A WORK IN PROGRESS
+
 # Telemetrix For The Arduino UNO R4 Minima and WIFI
 
 
@@ -25,7 +27,9 @@ APIs are provided for both synchronous and asyncio implementations.
 For the Minima, communication with the Python client is supported by a USBSerial 
 transport.
 
-You may choose a WIFI, USBSerial or BLE transport for the WIFI board.
+For the WIFI board, you may choose a WIFI, USBSerial or BLE transport. The transport 
+type is identified on the LED display.
+
 Please refer to the [User's Guide]() for further information, including installation 
 instructions and client APIs.
 
