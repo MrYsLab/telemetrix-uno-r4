@@ -18,7 +18,7 @@ import asyncio
 import sys
 
 from telemetrix_uno_r4.wifi.telemetrix_uno_r4_wifi_aio import telemetrix_uno_r4_wifi_aio
-s
+
 """
 Setup a pin for digital output and output a signal
 and toggle the pin. Do this 4 times.
