@@ -11,7 +11,7 @@ def the_callback(data):
     This will print the pin number, its reported value and
     the date and time when the change occurred
 
-    :param data: [pin mode, pin, current reported value, pin_mode, timestamp]
+    :param data: [pin mode, pin, current reported value,timestamp]
     """
     date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(data[CB_TIME]))
     print(f'Report Type: {data[CB_PIN_MODE]} Pin: {data[CB_PIN]} '
@@ -45,7 +45,7 @@ For "the_callback" above, this parameter is named data.
 
 The list contents vary from input pin type to input pin type and 
 are described in detail for each _set_pin_mode_XXX_ method in the
-[API documentation.](https://htmlpreview.github.io/?https://github.com/MrYsLab/telemetrix-rpi-pico/blob/master/html/telemetrix_rpi_pico/index.html) 
+[API documentation.](telemetrix_minima_reference.md) 
 The first element in the list identifies the pin type, and the last element
 is a timestamp of the data change occurrence. Other elements identify the GPIO pin, 
 the current data value, and additional relevant information.

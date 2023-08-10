@@ -45,6 +45,10 @@ nav:
 
 theme:
   name: 'material'
+  features:
+    - content.action.edit
+    - content.action.view
+    - navigation.footer
 
 plugins:
   - search

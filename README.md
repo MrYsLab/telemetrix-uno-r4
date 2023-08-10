@@ -1,7 +1,5 @@
 ## telemetrix-uno-r4
 
-# THIS IS A WORK IN PROGRESS
-
 # Telemetrix For The Arduino UNO R4 Minima and WIFI
 
 
