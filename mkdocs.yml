@@ -1,60 +1,50 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: The Telemetrix User's Guide For The Raspberry Pi Pico W
+site_name: The Telemetrix User's Guide For The Arduino UNO R4 Minima And WIFI
 nav:
-    - Introduction: index.md
-    - Checking If You Have The Correct Version Of Python Installed: python_3_verify.md
-    - Installation Procedures:
-        - Installing And Upgrading The Client API On Your PC: install_telemetrix.md
-        - Installing And Upgrading The Pico Server Application: install_pico_server.md
-    - Telemetrix Design Concepts:
-        - Pin Modes: about_the_apis.md
-        - Callbacks: callbacks.md
-    - The APIs:
-        - telemetrix_rpi_pico_w:
-          - Importing The Package And Instantiating The Library: importing.md
-          - Analog Input Methods: analog_input.md
-          - Digital Input Methods: digital_input.md
-          - Digital Output Methods: digital_output.md
-          - DHT Humidity/Temperature Sensor Methods: dht.md
-          - HC-SR04 Sonar Distance Sensor Methods: sonar.md
-          - I2C Methods: i2c.md
-          - NeoPixel Methods: neopixel.md
-          - PWM Methods: pwm.md
-          - Servo Methods: servo.md
-          - SPI Methods: spi.md
-          - Stepper Motor Methods: stepper.md
-          - Shutting Down: management.md
-          - Diagnostic Aids: debug.md
-        - telemetrix_rpi_pico_w_aio:
-            - Importing The Package And Instantiating The Library: importing2.md
-            - Analog Input Methods: analog_input2.md
-            - Digital Input Methods: digital_input2.md
-            - Digital Output Methods: digital_output2.md
-            - DHT Humidity/Temperature Sensor Methods: dht2.md
-            - HC-SR04 Sonar Distance Sensor Methods: sonar2.md
-            - I2C Methods: i2c2.md
-            - NeoPixel Methods: neopixel2.md
-            - PWM Methods: pwm2.md
-            - Servo Methods: servo2.md
-            - SPI Methods: spi2.md
-            - Stepper Motor Methods: stepper2.md
-            - Shutting Down: management2.md
-            - Diagnostic Aids: debug2.md
-    - Downloading And Running The Examples: examples.md
-    - Client APIs:
-        - telemetrix_uno_r4_minima: telemetrix_minima_reference.md
-        - telemetrix_uno_r4_minima_aio: telemetrix_minima_reference_aio.md
-        - telemetrix_uno_r4_wifi: telemetrix_wifi_reference.md
-        - telemetrix_uno_r4_wifi_aio: telemetrix_wifi_reference_aio.md
+  - Introduction: index.md
+  - Known Issues: issues.md
+  - Installation:
+      - Server:
+          - Install The Arduino IDE: arduino_ide.md
+          - Install the Telemetrix4Uno Library Into The Arduino IDE: server_library_installation.md
+          - Select A Server From the Arduino IDE Examples Menu: server_selection.md
+          - Server Configuration: server_config.md
+      - Client:
+          - Install Python 3.8+: python_3_verify.md
+          - Create A Python Virtual Environment: venv.md
+          - Installing The Python Client APIs: install_telemetrix.md
+  - Usage:
+      - Developing With Telemetrix:
+          - General Principles: about_the_apis.md
+          - Callbacks: callbacks.md
+          - Application Creation: app_creation.md
+          - Application Templates:
+              - Arduino UNO R4 Minima:
+                - Minima Threaded: template_minima_threaded.md
+                - Minima AIO: template_minima_aio.md
+              - Arduino UNO R4 WIFI:
+                 - BLE AIO: template_ble.md
+                 - USBSerial:
+                    - USBSerial Threaded: template_usb_serial_threaded.md
+                    - USBSerial AIO: template_usb_serial_aio.md
+                 - WIFI:
+                    - WIFI Threaded: template_wifi_threaded.md
+                    - WIFI AIO: template_wifi_aio.md
 
-    - About: about.md
-    - License: license.md
+
+      - The API References:
+          - telemetrix_uno_r4_minima: telemetrix_minima_reference.md
+          - telemetrix_uno_r4_minima_aio: telemetrix_minima_reference_aio.md
+          - telemetrix_uno_r4_wifi: telemetrix_wifi_reference.md
+          - telemetrix_uno_r4_wifi_aio: telemetrix_wifi_reference_aio.md
+  - Downloading And Running The Examples: examples.md
+  - About: about.md
+  - License: license.md
 # theme: windmill
 
 theme:
   name: 'material'
-
 
 plugins:
   - search
@@ -62,9 +52,9 @@ plugins:
       handlers:
         python:
           paths: [ telemetrix_uno_r4/wifi/telemetrix_uno_r4_wifi,
-          telemetrix_uno_r4/wifi/telemetrix_uno_r4_wifi_aio,
-          telemetrix_uno_r4/minima/telemetrix_uno_r4_minima,
-          telemetrix_uno_r4/minima/telemetrix_uno_r4_minima_aio]
+                   telemetrix_uno_r4/wifi/telemetrix_uno_r4_wifi_aio,
+                   telemetrix_uno_r4/minima/telemetrix_uno_r4_minima,
+                   telemetrix_uno_r4/minima/telemetrix_uno_r4_minima_aio ]
 
 
 

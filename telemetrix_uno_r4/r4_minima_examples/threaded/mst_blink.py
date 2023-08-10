@@ -19,7 +19,7 @@
 import sys
 import time
 
-from telemetrix_uno_r4.minima.telemetrix_uno_r4_minima import telemetrix_uno_r4_minima
+from telemetrix_uno_r4.minima.telemetrix_uno_r4_minimima import telemetrix_uno_r4_minima
 """
 Setup a pin for digital output 
 and toggle the pin 5 times.
