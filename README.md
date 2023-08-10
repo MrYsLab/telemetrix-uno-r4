@@ -28,6 +28,6 @@ transport.
 For the WIFI board, you may choose a WIFI, USBSerial or BLE transport. The transport 
 type is identified on the LED display.
 
-Please refer to the [User's Guide]() for further information, including installation 
+Please refer to the [User's Guide](https://mryslab.github.io/telemetrix-uno-r4/) for further information, including installation 
 instructions and client APIs.
 
