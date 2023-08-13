@@ -1,6 +1,12 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 site_name: The Telemetrix User's Guide For The Arduino UNO R4 Minima And WIFI
+repo_url: https://github.com/MrYsLab/telemetrix-uno-r4
+copyright: > # should remain a link to the original theme
+  Copyright &copy; 2023 Alan Yorinks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Last Modified: August 
+  12, 2023<br>
+
+
 nav:
   - Introduction: index.md
   - Known Issues: issues.md
@@ -45,9 +51,9 @@ nav:
 
 theme:
   name: 'material'
+  icon:
+    repo: fontawesome/brands/github
   features:
-    - content.action.edit
-    - content.action.view
     - navigation.footer
 
 plugins:

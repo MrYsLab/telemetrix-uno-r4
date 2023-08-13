@@ -89,6 +89,3 @@ date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(data[CB_TIME]))
 
 
 <br>
-<br>
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.

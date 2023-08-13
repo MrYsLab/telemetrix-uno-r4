@@ -26,8 +26,3 @@ If you need to install Python 3, refer to [python.org.](https://www.python.org/)
 
 
 <br>
-<br>
-
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
-

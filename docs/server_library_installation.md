@@ -19,5 +19,5 @@ Follow the [instructions on this link](https://forum.arduino.cc/t/radio-module-f
 to make sure that you have the correct version of 
 the radio firmware installed and to install the Beta version of the ArduinoBLE library.
 
-<BR>
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
+
+<br>

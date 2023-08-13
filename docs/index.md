@@ -176,9 +176,4 @@ Report Type: 2 Pin: 8 Value: 1 Time Stamp: 2023-07-14 13:35:34
 ```
 
 
-
-
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
-
-**Last updated 7 August 2023**
+<br>

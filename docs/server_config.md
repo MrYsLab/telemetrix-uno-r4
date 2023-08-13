@@ -83,7 +83,4 @@ own message
 across the display, and it still functions even if you disable the starting banner.
 
 
-
-
-<BR>
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
+<br>

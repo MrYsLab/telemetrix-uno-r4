@@ -22,8 +22,4 @@ below have a consistent API across all API classes.
 * set_pin_mode_servo
 
 
-
 <br>
-<br>
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.

@@ -33,4 +33,3 @@ The third is for the concurrency type:
 * [r4_wifi_examples_threaded - usbSerial](https://github.com/MrYsLab/telemetrix-uno-r4/tree/master/telemetrix_uno_r4/r4_wifi_examples/threaded/usbSerial)
 
 <BR>
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.

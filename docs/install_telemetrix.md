@@ -26,23 +26,15 @@ with _\_aio_.
 
 ### Arduino UNO R4 Mimima Clients
 
-  * telemetrix_uno_r4_minima
+  * [telemetrix_uno_r4_minima](telemetrix_minima_reference.md)
 
-  * telemetrix_uno_r4_minima_aio 
+  * [telemetrix_uno_r4_minima_aio ](telemetrix_minima_reference_aio.md)
 
 
 ### Arduino UNO R4 WIFI Clients
-  * telemetrix_uno_r4_wifi
+  * [telemetrix_uno_r4_wifi](telemetrix_wifi_reference.md)
 
-  * telemetrix_uno_r4_wifi_aio 
-
-
-
-
+  * [telemetrix_uno_r4_wifi_aio](telemetrix_wifi_reference_aio.md) 
 
 
 <br>
-<br>
-
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.

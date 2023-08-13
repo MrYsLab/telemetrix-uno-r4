@@ -23,6 +23,3 @@ except:
 ```
 
 <br>
-<br>
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.

@@ -14,5 +14,5 @@ You may need to add your login to the dialout group to upload to the Arduino.
 
 To do so, follow [these instructions](https://support.arduino.cc/hc/en-us/articles/360016495679-Fix-port-access-on-Linux).
 
-<BR>
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
+
+<br>

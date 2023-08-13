@@ -13,9 +13,5 @@ When filing an issue, please provide:
 3. Sample code demonstrating the problem.
 
 For bugs, comments, or questions, please use the links above.
+
 <br>
-<br>
-
-
-
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.

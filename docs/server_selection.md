@@ -17,6 +17,4 @@ There are four servers to choose from:
     * Telemetrix4UnoR4WIFI - utilizing a WIFI transport.
 
 
-
-<BR>
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
+<br>

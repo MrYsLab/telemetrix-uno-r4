@@ -25,5 +25,5 @@ Instructions to install the Beta version of ArduinoBLE [may be found here.](http
 BLE is only supported using the [asyncio API](telemetrix_wifi_reference_aio.md). The 
 threaded API does not support BLE.
 
-<BR>
-Copyright (C) 2023 Alan Yorinks. All Rights Reserved.
+
+<br>
