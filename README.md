@@ -31,3 +31,4 @@ type is identified on the LED display.
 Please refer to the [User's Guide](https://mryslab.github.io/telemetrix-uno-r4/) for further information, including installation 
 instructions and client APIs.
 
+Programmed with [Pycharm](https://www.jetbrains.com/pycharm/)  ![](https://resources.jetbrains.com/storage/products/company/brand/logos/PyCharm_icon.svg)
