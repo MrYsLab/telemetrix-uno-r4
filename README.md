@@ -7,20 +7,20 @@ This Python package allows you to monitor and control an UNO R4 Minima or
 WIFI board by simply writing a Python script using one of the telemetrix--uno-r4 APIs.
 APIs are provided for both synchronous and asyncio implementations.
 
-| Feature                            | Minima | WIFI |              Notes              |
-|------------------------------------|:------:|:----:|:-------------------------------:|
-| Analog Input                       |   X    |  X   |                                 |
-| Analog Output (PWM)                |   X    |  X   |                                 |
-| Digital Input                      |   X    |  X   |                                 |
-| Digital Output                     |   X    |  X   |                                 |
-| i2c Primitives                     |   X    |  X   |                                 |
-| Servo Motor Control                |   X    |  X   | Currently, BLE is not supported |
-| DHT Temperature/Humidity Sensor    |   X    |  X   |                                 |
-| HC-SR04 Sonar Distance Sensor      |   X    |  X   |                                 |
-| SPI Primitives                     |   X    |  X   |                                 |
-| Scrolling Message Support          |        |  X   |                                 |
-| Integrated Debugging Aids Provided |   X    |  X   |                                 |
-| Examples ProvidedFor All Features  |   X    |  X   |                                 |
+| Feature                            | Minima | WIFI | Notes |
+|------------------------------------|:------:|:----:|:-----:|
+| Analog Input                       |   X    |  X   |       |
+| Analog Output (PWM)                |   X    |  X   |       |
+| Digital Input                      |   X    |  X   |       |
+| Digital Output                     |   X    |  X   |       |
+| i2c Primitives                     |   X    |  X   |       |
+| Servo Motor Control                |   X    |  X   |       |
+| DHT Temperature/Humidity Sensor    |   X    |  X   |       |
+| HC-SR04 Sonar Distance Sensor      |   X    |  X   |       |
+| SPI Primitives                     |   X    |  X   |       |
+| Scrolling Message Support          |        |  X   |       |
+| Integrated Debugging Aids Provided |   X    |  X   |       |
+| Examples ProvidedFor All Features  |   X    |  X   |       |
 
 For the Minima, communication with the Python client is supported by a USBSerial 
 transport.
