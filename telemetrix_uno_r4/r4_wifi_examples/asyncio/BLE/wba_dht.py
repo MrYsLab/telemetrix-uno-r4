@@ -83,7 +83,7 @@ async def dht(my_board, pin):
         """
     await my_board.start_aio()
     # set the pin mode for a DHT 11 or 22
-    await my_board.set_pin_mode_dht(pin, the_callback, dht_type=11)
+    await my_board.set_pin_mode_dht(pin, the_callback, dht_type=22)
 
     # just sit in a loop waiting for the reports to come in
     while True:

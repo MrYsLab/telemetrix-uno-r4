@@ -323,10 +323,10 @@ class TelemetrixUnoR4WiFiAio:
                 except KeyboardInterrupt:
                     if self.shutdown_on_exception:
                         await self.shutdown()
-    
+
             if self.com_port:
                 print(f'Telemetrix4UnoR4WIFI found and connected to {self.com_port}')
-    
+
                 # no com_port found - raise a runtime exception
             else:
                 if self.shutdown_on_exception:
@@ -335,10 +335,15 @@ class TelemetrixUnoR4WiFiAio:
             await self.disable_scroll_message()
             # using tcp/ip
         elif self.transport_type == PrivateConstants.WIFI_TRANSPORT:
-            self.sock = TelemetrixAioSocket(self.transport_address, self.ip_port, self.loop)
-            await self.sock.start()
+            self.sock = TelemetrixAioSocket(self.transport_address, self.ip_port,
+                                            self.loop)
+            try:
+                await self.sock.start()
+            except OSError:
+                raise RuntimeError('Could not connect to this address')
         else:  # ble
-            self.ble_instance = TelemetrixAioBle(self.ble_device_name, self._ble_report_dispatcher)
+            self.ble_instance = TelemetrixAioBle(self.ble_device_name,
+                                                 self._ble_report_dispatcher)
             await self.ble_instance.connect()
 
         # get arduino firmware version and print it
@@ -977,7 +982,7 @@ class TelemetrixUnoR4WiFiAio:
         """
         if self.reported_features & PrivateConstants.SPI_FEATURE:
 
-            if type(chip_select_list) != list:
+            if type(chip_select_list) is not list:
                 if self.shutdown_on_exception:
                     await self.shutdown()
                 raise RuntimeError('chip_select_list must be in the form of a list')
@@ -1109,7 +1114,7 @@ class TelemetrixUnoR4WiFiAio:
 
     async def spi_read_blocking(self, chip_select, register_selection,
                                 number_of_bytes_to_read,
-                          call_back=None):
+                                call_back=None):
         """
         Read the specified number of bytes from the specified SPI port and
         call the callback function with the reported data.
@@ -1342,7 +1347,7 @@ class TelemetrixUnoR4WiFiAio:
     #
     #     command = [PrivateConstants.ONE_WIRE_READ]
     #     await self._send_command(command)
-    #     await asynio.sleep(.2)
+    #     await asyncio.sleep(.2)
     #
     # async def onewire_reset_search(self):
     #     """
@@ -2476,6 +2481,7 @@ class TelemetrixUnoR4WiFiAio:
 
     async def _stepper_distance_to_go_report(self, report):
         return  # for now
+
     #     """
     #     Report stepper distance to go.
     #
@@ -2503,6 +2509,7 @@ class TelemetrixUnoR4WiFiAio:
 
     async def _stepper_target_position_report(self, report):
         return  # for now
+
     #     """
     #     Report stepper target position to go.
     #
@@ -2532,6 +2539,7 @@ class TelemetrixUnoR4WiFiAio:
 
     async def _stepper_current_position_report(self, report):
         return  # for now
+
     #     """
     #     Report stepper current position.
     #
@@ -2562,6 +2570,7 @@ class TelemetrixUnoR4WiFiAio:
 
     async def _stepper_is_running_report(self, report):
         return  # for now
+
     #     """
     #     Report if the motor is currently running
     #
@@ -2582,6 +2591,7 @@ class TelemetrixUnoR4WiFiAio:
 
     async def _stepper_run_complete_report(self, report):
         return  # for now
+
     #     """
     #     The motor completed it motion
     #
