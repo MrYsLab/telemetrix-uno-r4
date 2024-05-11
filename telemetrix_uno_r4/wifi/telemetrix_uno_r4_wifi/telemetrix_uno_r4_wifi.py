@@ -980,7 +980,7 @@ class TelemetrixUnoR4WiFi(threading.Thread):
         """
 
         if self.reported_features & PrivateConstants.SPI_FEATURE:
-            if type(chip_select_list) != list:
+            if type(chip_select_list) is not list:
                 if self.shutdown_on_exception:
                     self.shutdown()
                 raise RuntimeError('chip_select_list must be in the form of a list')
@@ -2449,6 +2449,7 @@ class TelemetrixUnoR4WiFi(threading.Thread):
     #
     #     cb(cb_list)
     #
+
     def _stepper_target_position_report(self, report):
         return  # for now
     #     """
@@ -2477,6 +2478,7 @@ class TelemetrixUnoR4WiFi(threading.Thread):
     #
     #     cb(cb_list)
     #
+
     def _stepper_current_position_report(self, report):
         return  # for now
     #     """
@@ -2505,6 +2507,7 @@ class TelemetrixUnoR4WiFi(threading.Thread):
     #
     #     cb(cb_list)
     #
+
     def _stepper_is_running_report(self, report):
         return  # for now
     #     """
@@ -2523,6 +2526,7 @@ class TelemetrixUnoR4WiFi(threading.Thread):
     #
     #     cb(cb_list)
     #
+
     def _stepper_run_complete_report(self, report):
         return  # for now
     #     """
