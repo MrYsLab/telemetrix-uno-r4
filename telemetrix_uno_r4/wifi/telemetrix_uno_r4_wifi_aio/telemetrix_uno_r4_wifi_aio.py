@@ -1,5 +1,5 @@
 """
- Copyright (c) 2023 Alan Yorinks All rights reserved.
+ Copyright (c) 2023, 2024 Alan Yorinks All rights reserved.
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -286,7 +286,7 @@ class TelemetrixUnoR4WiFiAio:
         # self.stepper_info_list = []
         # # a list of dictionaries to hold stepper information
         # for motor in range(self.max_number_of_steppers):
-        #     self.stepper_info_list.append(self.stepper_info)
+        #     self.stepper_info_list.append(self.stepper_info.copy())
 
         print(f'telemetrix_uno_r4_wifi_aio Version:'
               f' {PrivateConstants.TELEMETRIX_VERSION}')
@@ -545,8 +545,8 @@ class TelemetrixUnoR4WiFiAio:
 
         callback returns a data list:
 
-        [I2C_READ_REPORT, address, register, count of data bytes,
-         data bytes, time-stamp]
+        [I2C_READ_REPORT, i2c_port, number of bytes read, address, register,
+           bytes read..., time-stamp]
 
         """
         if not callback:
@@ -586,8 +586,8 @@ class TelemetrixUnoR4WiFiAio:
 
         callback returns a data list:
 
-        [I2C_READ_REPORT, address, register, count of data bytes,
-         data bytes, time-stamp]
+        [I2C_READ_REPORT, i2c_port, number of bytes read, address, register,
+           bytes read..., time-stamp]
 
         """
         if not callback:
