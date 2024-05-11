@@ -15,7 +15,7 @@
         <link rel="next" href="../telemetrix_wifi_reference_aio/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.21">
     
     
       
@@ -1559,7 +1559,7 @@
 <a id="telemetrix_uno_r4_wifi"></a>
   <div class="doc doc-contents first">
   
-      <p>Copyright (c) 2023 Alan Yorinks All rights reserved.</p>
+      <p>Copyright (c) 2023, 2024 Alan Yorinks All rights reserved.</p>
 <p>This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
 Version 3 as published by the Free Software Foundation; either
@@ -4216,7 +4216,11 @@ a set of private methods.</p>
 <span class="normal">2642</span>
 <span class="normal">2643</span>
 <span class="normal">2644</span>
-<span class="normal">2645</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TelemetrixUnoR4WiFi</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+<span class="normal">2645</span>
+<span class="normal">2646</span>
+<span class="normal">2647</span>
+<span class="normal">2648</span>
+<span class="normal">2649</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TelemetrixUnoR4WiFi</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class exposes and implements the telemetrix API.</span>
 <span class="sd">    It uses threading to accommodate concurrency.</span>
@@ -4461,7 +4465,7 @@ a set of private methods.</p>
         <span class="c1"># self.stepper_info_list = []</span>
         <span class="c1"># # a list of dictionaries to hold stepper information</span>
         <span class="c1"># for motor in range(self.max_number_of_steppers):</span>
-        <span class="c1">#     self.stepper_info_list.append(self.stepper_info)</span>
+        <span class="c1">#     self.stepper_info_list.append(self.stepper_info.copy())</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">the_reporter_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">the_data_receive_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -4757,8 +4761,8 @@ a set of private methods.</p>
 
 <span class="sd">        callback returns a data list:</span>
 
-<span class="sd">        [I2C_READ_REPORT, address, register, count of data bytes,</span>
-<span class="sd">         data bytes, time-stamp]</span>
+<span class="sd">        [I2C_READ_REPORT, i2c_port, number of bytes read, address, register,</span>
+<span class="sd">           bytes read..., time-stamp]</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -4796,8 +4800,8 @@ a set of private methods.</p>
 
 <span class="sd">        callback returns a data list:</span>
 
-<span class="sd">        [I2C_READ_REPORT, address, register, count of data bytes,</span>
-<span class="sd">         data bytes, time-stamp]</span>
+<span class="sd">        [I2C_READ_REPORT, i2c_port, number of bytes read, address, register,</span>
+<span class="sd">           bytes read..., time-stamp]</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -5164,7 +5168,7 @@ a set of private methods.</p>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reported_features</span> <span class="o">&amp;</span> <span class="n">PrivateConstants</span><span class="o">.</span><span class="n">SPI_FEATURE</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">chip_select_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">chip_select_list</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">:</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_on_exception</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;chip_select_list must be in the form of a list&#39;</span><span class="p">)</span>
@@ -6633,6 +6637,7 @@ a set of private methods.</p>
     <span class="c1">#</span>
     <span class="c1">#     cb(cb_list)</span>
     <span class="c1">#</span>
+
     <span class="k">def</span> <span class="nf">_stepper_target_position_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report</span><span class="p">):</span>
         <span class="k">return</span>  <span class="c1"># for now</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -6661,6 +6666,7 @@ a set of private methods.</p>
     <span class="c1">#</span>
     <span class="c1">#     cb(cb_list)</span>
     <span class="c1">#</span>
+
     <span class="k">def</span> <span class="nf">_stepper_current_position_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report</span><span class="p">):</span>
         <span class="k">return</span>  <span class="c1"># for now</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -6689,6 +6695,7 @@ a set of private methods.</p>
     <span class="c1">#</span>
     <span class="c1">#     cb(cb_list)</span>
     <span class="c1">#</span>
+
     <span class="k">def</span> <span class="nf">_stepper_is_running_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report</span><span class="p">):</span>
         <span class="k">return</span>  <span class="c1"># for now</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -6707,6 +6714,7 @@ a set of private methods.</p>
     <span class="c1">#</span>
     <span class="c1">#     cb(cb_list)</span>
     <span class="c1">#</span>
+
     <span class="k">def</span> <span class="nf">_stepper_run_complete_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report</span><span class="p">):</span>
         <span class="k">return</span>  <span class="c1"># for now</span>
     <span class="c1">#     &quot;&quot;&quot;</span>
@@ -7417,7 +7425,7 @@ a set of private methods.</p>
     <span class="c1"># self.stepper_info_list = []</span>
     <span class="c1"># # a list of dictionaries to hold stepper information</span>
     <span class="c1"># for motor in range(self.max_number_of_steppers):</span>
-    <span class="c1">#     self.stepper_info_list.append(self.stepper_info)</span>
+    <span class="c1">#     self.stepper_info_list.append(self.stepper_info.copy())</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">the_reporter_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">the_data_receive_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -7923,8 +7931,8 @@ a set of private methods.</p>
                                 before read
                        Else, the write is suppressed</p>
 <p>callback returns a data list:</p>
-<p>[I2C_READ_REPORT, address, register, count of data bytes,
-  data bytes, time-stamp]</p>
+<p>[I2C_READ_REPORT, i2c_port, number of bytes read, address, register,
+    bytes read..., time-stamp]</p>
 
           <details class="quote">
             <summary>Source code in <code>telemetrix_uno_r4/wifi/telemetrix_uno_r4_wifi/telemetrix_uno_r4_wifi.py</code></summary>
@@ -7989,8 +7997,8 @@ a set of private methods.</p>
 
 <span class="sd">    callback returns a data list:</span>
 
-<span class="sd">    [I2C_READ_REPORT, address, register, count of data bytes,</span>
-<span class="sd">     data bytes, time-stamp]</span>
+<span class="sd">    [I2C_READ_REPORT, i2c_port, number of bytes read, address, register,</span>
+<span class="sd">       bytes read..., time-stamp]</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -8030,8 +8038,8 @@ a set of private methods.</p>
 <p>:param write_register: If True, the register is written before read
                        Else, the write is suppressed</p>
 <p>callback returns a data list:</p>
-<p>[I2C_READ_REPORT, address, register, count of data bytes,
-  data bytes, time-stamp]</p>
+<p>[I2C_READ_REPORT, i2c_port, number of bytes read, address, register,
+    bytes read..., time-stamp]</p>
 
           <details class="quote">
             <summary>Source code in <code>telemetrix_uno_r4/wifi/telemetrix_uno_r4_wifi/telemetrix_uno_r4_wifi.py</code></summary>
@@ -8103,8 +8111,8 @@ a set of private methods.</p>
 
 <span class="sd">    callback returns a data list:</span>
 
-<span class="sd">    [I2C_READ_REPORT, address, register, count of data bytes,</span>
-<span class="sd">     data bytes, time-stamp]</span>
+<span class="sd">    [I2C_READ_REPORT, i2c_port, number of bytes read, address, register,</span>
+<span class="sd">       bytes read..., time-stamp]</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -9167,7 +9175,7 @@ Time]</p>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reported_features</span> <span class="o">&amp;</span> <span class="n">PrivateConstants</span><span class="o">.</span><span class="n">SPI_FEATURE</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">chip_select_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">chip_select_list</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_on_exception</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;chip_select_list must be in the form of a list&#39;</span><span class="p">)</span>
