@@ -1004,80 +1004,77 @@ class TelemetrixUnoR4WiFiAio:
                 await self.shutdown()
             raise RuntimeError(f'The SPI feature is disabled in the server.')
 
-    # async def set_pin_mode_stepper(self, interface=1, pin1=2, pin2=3, pin3=4,
-    #                          pin4=5, enable=True):
-    #     """
-    #     Stepper motor support is implemented as a proxy for the
-    #     the AccelStepper library for the Arduino.
-    #
-    #     This feature is compatible with the TB6600 Motor Driver
-    #
-    #     Note: It may not work for other driver types!
-    #
-    #     https://github.com/waspinator/AccelStepper
-    #
-    #     Instantiate a stepper motor.
-    #
-    #     Initialize the interface and pins for a stepper motor.
-    #
-    #     :param interface: Motor Interface Type:
-    #
-    #             1 = Stepper Driver, 2 driver pins required
-    #
-    #             2 = FULL2WIRE  2 wire stepper, 2 motor pins required
-    #
-    #             3 = FULL3WIRE 3 wire stepper, such as HDD spindle,
-    #                 3 motor pins required
-    #
-    #             4 = FULL4WIRE, 4 wire full stepper, 4 motor pins
-    #                 required
-    #
-    #             6 = HALF3WIRE, 3 wire half stepper, such as HDD spindle,
-    #                 3 motor pins required
-    #
-    #             8 = HALF4WIRE, 4 wire half stepper, 4 motor pins required
-    #
-    #     :param pin1: Arduino digital pin number for motor pin 1
-    #
-    #     :param pin2: Arduino digital pin number for motor pin 2
-    #
-    #     :param pin3: Arduino digital pin number for motor pin 3
-    #
-    #     :param pin4: Arduino digital pin number for motor pin 4
-    #
-    #     :param enable: If this is true, the output pins at construction time.
-    #
-    #     :return: Motor Reference number
-    #     """
-    #     if self.reported_features & PrivateConstants.STEPPERS_FEATURE:
-    #
-    #         if self.number_of_steppers == self.max_number_of_steppers:
-    #             if self.shutdown_on_exception:
-    #                 await self.shutdown()
-    #             raise RuntimeError('Maximum number of steppers has already been assigned')
-    #
-    #         if interface not in self.valid_stepper_interfaces:
-    #             if self.shutdown_on_exception:
-    #                 await self.shutdown()
-    #             raise RuntimeError('Invalid stepper interface')
-    #
-    #         self.number_of_steppers += 1
-    #
-    #         motor_id = self.next_stepper_assigned
-    #         self.next_stepper_assigned += 1
-    #         self.stepper_info_list[motor_id]['instance'] = True
-    #
-    #         # build message and send message to server
-    #         command = [PrivateConstants.SET_PIN_MODE_STEPPER, motor_id, interface, pin1,
-    #                    pin2, pin3, pin4, enable]
-    #         await self._send_command(command)
-    #
-    #         # return motor id
-    #         return motor_id
-    #     else:
-    #         if self.shutdown_on_exception:
-    #             await self.shutdown()
-    #         raise RuntimeError(f'The Stepper feature is disabled in the server.')
+    async def set_pin_mode_stepper(self, interface=1, pin1=2, pin2=3, pin3=4,
+                             pin4=5, enable=True):
+        """
+        Stepper motor support is implemented as a proxy for the
+        the MobaTools stepper library for the Arduino.
+
+        https://github.com/MicroBahner/MobaTools
+
+        This feature is compatible with the TB6600 Motor Driver
+
+        Note: It may not work for other driver types!
+
+        Instantiate a stepper motor.
+
+        Initialize the interface and pins for a stepper motor.
+
+        :param interface: Motor Interface Type:
+
+                1 = Stepper Driver, 2 driver pins required
+
+                2 = FULL2WIRE  2 wire stepper, 2 motor pins required
+
+                3 = FULL3WIRE 3 wire stepper, such as HDD spindle,
+                    3 motor pins required
+
+                4 = FULL4WIRE, 4 wire full stepper, 4 motor pins
+                    required
+
+                6 = HALF3WIRE, 3 wire half stepper, such as HDD spindle,
+                    3 motor pins required
+
+                8 = HALF4WIRE, 4 wire half stepper, 4 motor pins required
+
+        :param pin1: Arduino digital pin number for motor pin 1
+
+        :param pin2: Arduino digital pin number for motor pin 2
+
+        :param pin3: Arduino digital pin number for motor pin 3
+
+        :param pin4: Arduino digital pin number for motor pin 4
+
+        :param enable: If this is true, the output pins at construction time.
+
+        :return: Motor Reference number
+        """
+        if self.reported_features & PrivateConstants.STEPPERS_FEATURE:
+            #
+            if self.number_of_steppers == self.max_number_of_steppers:
+                if self.shutdown_on_exception:
+                    await self.shutdown()
+                raise RuntimeError('Maximum number of steppers has already been assigned')
+            #
+            if interface not in self.valid_stepper_interfaces:
+                if self.shutdown_on_exception:
+                    await self.shutdown()
+                raise RuntimeError('Invalid stepper interface')
+            self.number_of_steppers += 1
+
+            motor_id = self.next_stepper_assigned
+            self.next_stepper_assigned += 1
+            self.stepper_info_list[motor_id]['instance'] = True
+            #  build message and send message to server
+            command = [PrivateConstants.SET_PIN_MODE_STEPPER, motor_id, interface, pin1,
+                       pin2, pin3, pin4, enable]
+            await self._send_command(command)
+            #  return motor id
+            return motor_id
+        else:
+            if self.shutdown_on_exception:
+                await self.shutdown()
+            raise RuntimeError(f'The Stepper feature is disabled in the server.')
 
     async def sonar_disable(self):
         """

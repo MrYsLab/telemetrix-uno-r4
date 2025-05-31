@@ -31,4 +31,7 @@ type is identified on the LED display.
 Please refer to the [User's Guide](https://mryslab.github.io/telemetrix-uno-r4/) for further information, including installation 
 instructions and client APIs.
 
+If you wish to extend Telemetrix's capabilities, a tutorial on how to do so is [available](https://mryslab.github.io/bits-n-bots/2025/05/20/telemetrix-under-the-hood--part-1/).
+
+
 Programmed with [Pycharm](https://www.jetbrains.com/pycharm/)  ![](https://resources.jetbrains.com/storage/products/company/brand/logos/PyCharm_icon.svg)
