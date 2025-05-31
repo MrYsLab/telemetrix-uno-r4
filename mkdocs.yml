@@ -3,9 +3,9 @@
 site_name: The Telemetrix User's Guide For The Arduino UNO R4 Minima And WIFI
 repo_url: https://github.com/MrYsLab/telemetrix-uno-r4
 copyright: > # should remain a link to the original theme
-  Copyright &copy; 2023-2024 Alan Yorinks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Last 
+  Copyright &copy; 2023-2025 Alan Yorinks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Last 
   Modified:
-  May 11, 2024<br>
+  May 31, 2025<br>
 
 
 nav:
@@ -46,6 +46,7 @@ nav:
           - telemetrix_uno_r4_wifi: telemetrix_wifi_reference.md
           - telemetrix_uno_r4_wifi_aio: telemetrix_wifi_reference_aio.md
   - Downloading And Running The Examples: examples.md
+  - Adding New Features: extend.md
   - About: about.md
   - License: license.md
 # theme: windmill
@@ -66,6 +67,15 @@ plugins:
                    telemetrix_uno_r4/wifi/telemetrix_uno_r4_wifi_aio,
                    telemetrix_uno_r4/minima/telemetrix_uno_r4_minima,
                    telemetrix_uno_r4/minima/telemetrix_uno_r4_minima_aio ]
+
+extra:
+  social:
+    - icon: fontawesome/solid/envelope
+      link: mailto:MisterYsLab@gmail.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/MrYsLab
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/mryslab.bsky.social
 
 
 
